@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var app = require('../app.js');
+var db = app.db;
+var objectId = app.ObjectID;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -7,3 +10,4 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+

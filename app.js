@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//App api routes
 var index = require('./routes/index');
 var users = require('./routes/users');
 var cities = require('./routes/cities');
@@ -13,6 +14,12 @@ var countries = require('./routes/countries');
 var hotels = require('./routes/hotels');
 var restaurants = require('./routes/restaurants');
 var trips = require('./routes/trips');
+
+//MongoDB requirements
+var mongodb = require("mongodb");
+var ObjectID = mongodb.ObjectID;
+
+var db;
 
 var app = express();
 
@@ -53,6 +60,20 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// Connection to MongoDB
+// please add process.env.MONGODD_URI instead of hardcoded uri when deploying
+
+mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+    if (err) {
+        console.log(err);
+        process.exit(1);
+    }
+
+    // Save database object from the callback for reuse.
+    db = database;
+    console.log("Database connection ready");
 });
 
 module.exports = app;
