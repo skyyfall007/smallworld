@@ -18,8 +18,7 @@ var trips = require('./routes/trips');
 //MongoDB requirements
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
-
-var db;
+var mongo_connection_uri = 'mongodb://ankith:test@ds151008.mlab.com:51008/journey';
 
 var app = express();
 
@@ -28,7 +27,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -65,15 +64,21 @@ app.use(function(err, req, res, next) {
 // Connection to MongoDB
 // please add process.env.MONGODD_URI instead of hardcoded uri when deploying
 
-mongodb.MongoClient.connect('mongodb://ankith:test@ds151008.mlab.com:51008/journey', function (err, database) {
+mongodb.MongoClient.connect(mongo_connection_uri, function (err, database) {
     if (err) {
         console.log(err);
         process.exit(1);
     }
 
     // Save database object from the callback for reuse.
-    db = database;
+    var db = database;
     console.log("Database connection ready");
 });
+
+// Generic error handler used by all endpoints.
+function handleError(res, reason, message, code) {
+    console.log("ERROR: " + reason);
+    res.status(code || 500).json({"error": message});
+};
 
 module.exports = app;
