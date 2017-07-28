@@ -65,7 +65,7 @@ app.use(function(err, req, res, next) {
 // Connection to MongoDB
 // please add process.env.MONGODD_URI instead of hardcoded uri when deploying
 
-mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+mongodb.MongoClient.connect('mongodb://ankith:test@ds151008.mlab.com:51008/journey', function (err, database) {
     if (err) {
         console.log(err);
         process.exit(1);
