@@ -14,8 +14,13 @@ mongodb.MongoClient.connect(mongo_connection_uri, function (err, database) {
 
     // Save database object from the callback for reuse.
     db = database;
-    console.log("Database connection ready");
+    console.log("/cities Database connection ready");
 });
+// Generic error handler used by all endpoints.
+var handleError = function handleError(res, reason, message, code) {
+    console.log("ERROR: " + reason);
+    res.status(code || 500).json({"error": message});
+};
 
 /* GET single CITIES by id listing. */
 router.get('/:id', function(req, res, next) {
@@ -45,13 +50,10 @@ router.get('/', function (req, res, next){
 
 /*POST CITIES */
 router.post('/', function(req, res, next){
-    var newContact = req.body;
+    var newCity = req.body;
 
-    if (!req.body.name) {
-        handleError(res, "Invalid input", 400);
-    }
 
-    db.collection(CITIES_COLLECTION).insertOne(newContact, function(err, doc) {
+    db.collection(CITIES_COLLECTION).insertOne(newCity, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to create new contact.");
         } else {
@@ -60,7 +62,7 @@ router.post('/', function(req, res, next){
     });
 });
 /*UPDATE CITIES */
-router.post('/:id', function (req, res, next){
+router.put('/:id', function (req, res, next){
     var updateDoc = req.body;
     delete updateDoc._id;
 
