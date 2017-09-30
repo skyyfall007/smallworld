@@ -1,0 +1,58 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4295f4;
+}
+
+li {
+    float: left;
+}
+ri {
+  float: right;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+ri a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #eee;
+}
+.vertical-menu {
+    width: 10%; /* Set a width if you like */
+    height: 100%;
+    float: left;
+    background-color: #eee;
+}
+
+.vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+}
+.vertical-menu a:hover {
+    background-color: #eee; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #333; /* Add a green color to the "active/current" link */
+    color: white;
+}
+.right-frame {
+  float: right;
+}
