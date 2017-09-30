@@ -34,7 +34,7 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
-/* GET all CITIESs */
+/* GET all CITIES */
 router.get('/', function (req, res, next){
 
     db.collection(CITIES_COLLECTION).find({}).toArray(function (err, docs) {

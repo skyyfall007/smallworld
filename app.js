@@ -14,6 +14,7 @@ var countries = require('./routes/countries');
 var hotels = require('./routes/hotels');
 var restaurants = require('./routes/restaurants');
 var trips = require('./routes/trips');
+var userTrips = require("./routes/userTrips");
 
 //MongoDB requirements
 var mongodb = require("mongodb");
@@ -24,7 +25,6 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -42,12 +42,19 @@ app.use('/api/countries', countries);
 app.use('/api/hotels', hotels);
 app.use('/api/restaurants', restaurants);
 app.use('/api/trips', trips);
+app.use('/api/')
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
+});
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
 });
 
 // error handler
