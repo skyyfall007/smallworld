@@ -42,7 +42,7 @@ app.use('/api/countries', countries);
 app.use('/api/hotels', hotels);
 app.use('/api/restaurants', restaurants);
 app.use('/api/trips', trips);
-app.use('/api/')
+app.use('/api/');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -51,11 +51,11 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-});
+});*/
 
 // error handler
 app.use(function(err, req, res, next) {
