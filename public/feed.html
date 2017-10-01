@@ -1,5 +1,6 @@
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <title>Small World - your personalized trip feed</title>
 </head>
@@ -193,7 +194,7 @@
 
     var loadPage = function(trips, counter){
         var url = sessionStorage.getItem("url");
-        trips = jQuery.GET(url);
+        trips = jQuery.get(url);
         for (i=0; i < 3; i++){
             for(j=0;j<3;j++){
                 index = i % 3;
@@ -205,13 +206,13 @@
 
                 var r = Math.floor((Math.random() * 11)+1);
 
-                trips[index].image = "./images/" + r + ".jpg";
+                var image = "./images/" + r + ".jpg";
 
 
-                document.getElementById(id + "city").innerHTML = trips[index].city;
-                document.getElementById(id + "image").src = trips[index].image;
+                document.getElementById(id + "city").innerHTML = trips[index].destination;
+                document.getElementById(id + "image").src = image;
                 document.getElementById(id + "price").onclick = goToTrip(index);
-                document.getElementById(id + "price").innerHTML = trips[index].price.toString();
+                document.getElementById(id + "price").innerHTML = ((trips[index].price)*4).toString();
 
             }
         }

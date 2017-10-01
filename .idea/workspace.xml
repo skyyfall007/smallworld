@@ -4,10 +4,7 @@
     <list default="true" id="10119326-385a-438b-85ee-b03b68bc4911" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/feed.html" afterPath="$PROJECT_DIR$/public/feed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/login.html" afterPath="$PROJECT_DIR$/public/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/preferences.html" afterPath="$PROJECT_DIR$/public/preferences.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/trip.html" afterPath="$PROJECT_DIR$/public/trip.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -111,8 +108,8 @@
       <file leaf-file-name="feed.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/feed.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="195" column="8" lean-forward="false" selection-start-line="195" selection-start-column="8" selection-end-line="195" selection-end-column="8" />
+            <state relative-caret-position="499">
+              <caret line="214" column="102" lean-forward="true" selection-start-line="214" selection-start-column="102" selection-end-line="214" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -121,8 +118,8 @@
       <file leaf-file-name="preferences.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/preferences.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+            <state relative-caret-position="591">
+              <caret line="179" column="30" lean-forward="true" selection-start-line="179" selection-start-column="30" selection-end-line="179" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -1053,11 +1050,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506830889001</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Front End 3">
+      <created>1506863626849</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1506863626849</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81937000" />
+    <option name="totallyTimeSpent" value="83154000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1075,9 +1079,9 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13749339" sideWeight="0.49346405" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1309255" sideWeight="0.50396615" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1309255" sideWeight="0.50396615" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33860046" sideWeight="0.49791667" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1309255" sideWeight="0.49603385" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1309255" sideWeight="0.49603385" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13907985" sideWeight="0.50653595" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960339" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32844242" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1135,7 +1139,8 @@
     <MESSAGE value="Init" />
     <MESSAGE value="With front end" />
     <MESSAGE value="Full on front end Bitch... but actually Login less gay, preferences updated and Feed finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="Full on front end Bitch... but actually Login less gay, preferences updated and Feed finished" />
+    <MESSAGE value="Front End 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Front End 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1383,8 +1388,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/feed.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="195" column="8" lean-forward="false" selection-start-line="195" selection-start-column="8" selection-end-line="195" selection-end-column="8" />
+        <state relative-caret-position="499">
+          <caret line="214" column="102" lean-forward="true" selection-start-line="214" selection-start-column="102" selection-end-line="214" selection-end-column="102" />
           <folding />
         </state>
       </provider>
@@ -1401,8 +1406,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/preferences.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+        <state relative-caret-position="591">
+          <caret line="179" column="30" lean-forward="true" selection-start-line="179" selection-start-column="30" selection-end-line="179" selection-end-column="30" />
           <folding />
         </state>
       </provider>
