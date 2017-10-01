@@ -1,5 +1,6 @@
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <title>Small World - your personalized trip feed</title>
 </head>
@@ -16,9 +17,6 @@
 
             <a class="nav-item nav-link active" target = "my_frame" href="feed.html">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="preferences.html">Preferences</a>
-            <a class="nav-item nav-link" href="profile.html">Profile</a>
-            <a class="nav-item nav-link" href="profile.html">Dashboard</a>
-            <a class="nav-item nav-link" href="saved.html" >Saved</a>
             <a class="nav-item nav-link" href="login.html">Logout</a>
 
         </div>
@@ -184,9 +182,7 @@
             "image" : ".//images//1.jpg"}];
 
 
-    var url = "https://journey365.herokuapp.com/";
-    var ext = "api/trips/";
-    var user_id = "KevinSmall/";
+
     var counter = 1;
 
     if(counter === 1)
@@ -195,7 +191,9 @@
 
 
     var loadPage = function(trips, counter){
-        //trips = $.GET(url+ext+userid+counter);
+        //var urlx = sessionStorage.getItem("url");
+        var urlx = "/api/usertrips/1000/2017-10-01/10/NYC/2017-10-11/";
+        trips = JSON.parse(jQuery.get(urlx));
         for (i=0; i < 3; i++){
             for(j=0;j<3;j++){
                 index = i % 3;
@@ -205,10 +203,15 @@
 
                 //document.write(id)
 
-                document.getElementById(id + "city").innerHTML = trips[index].city;
-                document.getElementById(id + "image").src = trips[index].image;
+                var r = Math.floor((Math.random() * 11)+1);
+
+                var image = "./images/" + r + ".jpg";
+
+
+                document.getElementById(id + "city").innerHTML = trips[index].destination;
+                document.getElementById(id + "image").src = image;
                 document.getElementById(id + "price").onclick = goToTrip(index);
-                document.getElementById(id + "price").innerHTML = trips[index].price.toString();
+                document.getElementById(id + "price").innerHTML = ((trips[index].price)*4).toString();
 
             }
         }
@@ -216,8 +219,16 @@
 
     var goToTrip = function(index){
         return function () {
-            sessionStorage.setItem("trip", JSON.stringify(trips[index]));
+            var price, departuredate, leavedate, city, url;
 
+            price = trips[index].price * 2;
+            departuredate = trips[index].departuredate;
+            leavedate = trips[index].leavedate;
+            city = trips[index].city;
+
+            url = "journey365.herokuapp.com/api/"+price+"/"+departuredate+"/"+leavedate+"/"+city+"/";
+            sessionStorage.setItem("url", url);
+            sessionStorage.setItem("trip", JSON.stringify(trips[index]));
             //document.write(item);
             var sendlink = "trip.html";
             window.location.href = sendlink;
