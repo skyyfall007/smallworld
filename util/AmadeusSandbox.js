@@ -8,10 +8,9 @@ TODO: Make a holiday object
 /*
 Function responsible for finding available locations for the given budget
  */
-var flightInspiration = function (user, flightBudget, departureDateRange, duration){
-    var originCity = user['city'];
-    var query = FLIGHT_INSPIRATION_URL + "?apikey=" + apiKey + "&origin=" + originCity + "&max_price=" + flightBudget +
-        "&departure_date=" + departureDateRange + "&duration=" + duration;
+var flightInspiration = function (city, flightBudget, departureDate, duration){
+    var query = FLIGHT_INSPIRATION_URL + "?apikey=" + apiKey + "&origin=" + city + "&max_price=" + flightBudget +
+        "&departure_date=" + departureDate + "&duration=" + duration;
     var options = {
         'host': query
     }
@@ -26,7 +25,11 @@ var flightInspiration = function (user, flightBudget, departureDateRange, durati
     });
     if (response!= null){
         var results = response['results'];
-
+        console.log(results);
+        return results;
+    }
+    else {
+        return "Could not get flight data"
     }
 
 
