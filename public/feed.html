@@ -16,9 +16,6 @@
 
             <a class="nav-item nav-link active" target = "my_frame" href="feed.html">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="preferences.html">Preferences</a>
-            <a class="nav-item nav-link" href="profile.html">Profile</a>
-            <a class="nav-item nav-link" href="profile.html">Dashboard</a>
-            <a class="nav-item nav-link" href="saved.html" >Saved</a>
             <a class="nav-item nav-link" href="login.html">Logout</a>
 
         </div>
@@ -195,7 +192,8 @@
 
 
     var loadPage = function(trips, counter){
-        //trips = $.GET(url+ext+userid+counter);
+        var url = sessionStorage.getItem("url");
+        trips = jQuery.GET(url);
         for (i=0; i < 3; i++){
             for(j=0;j<3;j++){
                 index = i % 3;
@@ -204,6 +202,11 @@
                 id = x + "." + y + ".";
 
                 //document.write(id)
+
+                var r = Math.floor((Math.random() * 11)+1);
+
+                trips[index].image = "./images/" + r + ".jpg";
+
 
                 document.getElementById(id + "city").innerHTML = trips[index].city;
                 document.getElementById(id + "image").src = trips[index].image;
@@ -216,8 +219,16 @@
 
     var goToTrip = function(index){
         return function () {
-            sessionStorage.setItem("trip", JSON.stringify(trips[index]));
+            var price, departuredate, leavedate, city, url;
 
+            price = trips[index].price * 2;
+            departuredate = trips[index].departuredate;
+            leavedate = trips[index].leavedate;
+            city = trips[index].city;
+
+            url = "journey365.herokuapp.com/api/"+price+"/"+departuredate+"/"+leavedate+"/"+city+"/";
+            sessionStorage.setItem("url", url);
+            sessionStorage.setItem("trip", JSON.stringify(trips[index]));
             //document.write(item);
             var sendlink = "trip.html";
             window.location.href = sendlink;

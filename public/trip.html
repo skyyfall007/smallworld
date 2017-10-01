@@ -27,9 +27,6 @@
 
             <a class="nav-item nav-link active" target = "my_frame" href="feed.html">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="preferences.html">Preferences</a>
-            <a class="nav-item nav-link" href="profile.html">Profile</a>
-            <a class="nav-item nav-link" href="profile.html">Dashboard</a>
-            <a class="nav-item nav-link" href="saved.html" >Saved</a>
             <a class="nav-item nav-link" href="login.html">Logout</a>
 
         </div>
@@ -123,6 +120,7 @@
 <script>
 
     var trip = JSON.parse(sessionStorage.getItem('trip'));
+    var hotel = sessionStorage.getItem("hotelreg");
     document.write(trip);
     document.getElementById("city").innerHTML = trip.city;
     document.getElementById("price").innerHTML = trip.price;
