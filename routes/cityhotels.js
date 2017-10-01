@@ -31,11 +31,11 @@ var handleError = function handleError(res, reason, message, code) {
 /*
 @TODO add hotel and daily budget to each trip before sending them out
  */
-router.get('/:budget/:departureDate/:duration/:originCity/:leaveDate', function(req, res, next) {
+router.get('/:budget/:checkInDate/:leaveDate/:city/', function(req, res, next) {
     var budget = req.params.budget;
-    var departureDate = req.params.departureDate;
-    var duration = req.params.duration;
-    var originCity = req.params.originCity;
+    var checkInDate = req.params.checkInDate;
+    //var duration = req.params.duration;
+    var city = req.params.city;
     var tripListJson = null;
     var leaveDate = req.params.leaveDate;
 
@@ -43,34 +43,33 @@ router.get('/:budget/:departureDate/:duration/:originCity/:leaveDate', function(
     var hotelBudget = getHotelNightBudget(budget);
     var dailyBudget = getDailyBudget(budget);
 
+    var resultList = [];
 
-    flightInspiration(originCity, flightBudget, departureDate, duration).then(function (data) {
-        var flightList = data.results;
-        var flightList = (jsonChopper(flightList, 27));
-        console.log(flightList);
-        res.status(200).json(flightList);
-
+    hotelSearch(city, checkInDate, leaveDate, budget).then(function (data) {
+        var hotelList = data.results[0];
+        //console.log(flightList);
+        res.status(200).json(hotelList);
     });
-
-});
-
-var getUserById  = function (id) {
+})
+;
+/*var getUserById  = function (id) {
     return new Promise(function (resolve, reject) {
+
         var user;
-    db.collection(USER_COLLECTION).findOne({ _id: new ObjectID(id) }, function(err, doc) {
-        if (err) {
-            app.handleError(res, err.message, "Failed to find user");
-            console.log("Cannot find user");
-            reject(err);
-        }
-        else {
-            user = doc;
-            resolve(doc);
-        }
-    });
+        db.collection(USER_COLLECTION).findOne({ _id: new ObjectID(id) }, function(err, doc) {
+            if (err) {
+                app.handleError(res, err.message, "Failed to find user");
+                console.log("Cannot find user");
+                reject(err);
+            }
+            else {
+                user = doc;
+                resolve(doc);
+            }
+        });
     });
 
-};
+};*/
 /*
 @TODO make the three budgeting methods work
  */
@@ -82,8 +81,8 @@ var getDailyBudget = function(totalBudget, numberOfDays){
 };
 // calculates flight budget from total budget
 var getFlightBudget = function (totalBudget, numberOfDays) {
-   var d = 0.1 * getDailyBudget(totalBudget, numberOfDays) * numberOfDays;
-   //return parseInt(d);
+    var d = 0.1 * getDailyBudget(totalBudget, numberOfDays) * numberOfDays;
+    //return parseInt(d);
     return totalBudget;
 };
 //calculates hotel nightly budget from total budget
@@ -105,10 +104,10 @@ Function responsible for finding available locations for the given budget
 Sample request = http://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?origin=BOS&
 departure_date=2017-12-01&duration=7--9&max_price=500&apikey=3tiT2AwHzjXBasqIEoGf7KCJaXMqWEvk
  */
-var flightInspiration = function (city, flightBudget, departureDate, duration){
+var hotelSearch = function (originCity, checkInDate, checkOutDate, maxPrice) {
     return new Promise(function (resolve, reject) {
-        var query = FLIGHT_INSPIRATION_URL + "?apikey=" + apiKey + "&origin=" + city + "&max_price=" + flightBudget +
-            "&departure_date=" + departureDate + "&duration=" + duration;
+        var query = HOTEL_SEARCH_URL + "?apikey=" + apiKey + "&origin=" + originCity + "&max_price=" + maxPrice +
+            "&check_in=" + checkInDate + "&check_out=" + checkOutDate + "&number_of_results=" + 1;
         var request = require('request');
         request(query, function (error, response, body) {
             if (body == null){
@@ -120,22 +119,33 @@ var flightInspiration = function (city, flightBudget, departureDate, duration){
             }
         });
     });
-}
+};
+
 /**
  * Reduces the size of a json list by slicing off objects
  * @param json
  * @param size
  * @returns chopped json list
  */
-var jsonChopper = function (json, size) {
-    var jsonList = json;
-    var tripList = [];
-    var counter = 0;
-    for (var i = 0; (i < size) && (i < jsonList.length); i++){
-            tripList[i] = jsonList[i];
-    }
-    return tripList;
-}
+
+
+var hotelSearch = function (originCity, checkInDate, checkOutDate, maxPrice) {
+    return new Promise(function (resolve, reject) {
+        var query = HOTEL_SEARCH_URL + "?apikey=" + apiKey + "&location=" + originCity + "&max_price=" + maxPrice +
+            "&check_in=" + checkInDate + "&check_out=" + checkOutDate + "&number_of_results=" + 2;
+        var request = require('request');
+        console.log("url", query);
+        request(query, function (error, response, body) {
+            if (body == null){
+                reject(error);
+            }
+            else {
+                var tripList = body;
+                resolve(JSON.parse(tripList));
+            }
+        });
+    });
+};
 
 
 

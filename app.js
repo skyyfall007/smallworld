@@ -14,7 +14,7 @@ var hotels = require('./routes/hotels');
 var restaurants = require('./routes/restaurants');
 var trips = require('./routes/trips');
 var usertrips = require("./routes/usertrips");
-
+var cityhotels = require("./routes/cityhotels")
 //MongoDB requirements
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
@@ -42,6 +42,7 @@ app.use('/api/hotels', hotels);
 app.use('/api/restaurants', restaurants);
 app.use('/api/trips', trips);
 app.use('/api/usertrips', usertrips);
+app.use('/api/cityhotels', cityhotels);
 
 // catch 404 and forward to error handler
 /*app.use(function(req, res, next) {
