@@ -1,0 +1,126 @@
+<html>
+<head>
+    <style>
+        .crop {
+            width:100%;
+            height: 25%;
+            overflow: hidden;
+        }
+
+        .crop img {
+            width: 100%;
+            margin: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+
+
+<div class = "card text-center w-80" id="Main_Card">
+    <div class="card-header">
+        <div class="card bg-dark text-white crop" id="Picard">
+            <img class="card-img" src="./images/2.jpg" id="image">
+            <h3 class="card-img-overlay card-title" id="city">Bangin' Bengaluru</h3>
+        </div>
+    </div>
+    <div class="card-body">
+
+        <!--This is the Budget Group-->
+        <div class="card-group sticky-top" id="BudgetGroup">
+
+            <div class="card rounded" id="PriceCard">
+                <div class="card-body">
+                    <h6 class="card-subtitle text-muted">Total</h6>
+                    <h4 class="card-title" id="price">900</h4>
+                </div>
+            </div>
+
+            <div class="card" id="DailyCard">
+                <div class="card-body">
+                    <h6 class="card-subtitle text-muted">Daily</h6>
+                    <h4 class="card-title" id="daily">40</h4>
+                </div>
+            </div>
+
+        </div>
+
+        <!--This is the Hotel Booking Group-->
+        <div class="card-group" id="HotelGroup">
+            <div class="card bg-dark text-white crop" id="HotelCard">
+                <img class="card-img" src="./images/kevin_happy.jpg" height="100%" id="hotelimg">
+                <h4 class="card-img-overlay card-title" id="hotelName" >Radisson</h4>
+            </div>
+
+            <div class="card" id="StartDate">
+                <div class="card-body">
+                    <h6 class="card-subtitle text-muted">Start Date</h6>
+                    <h4 class="card-title" id="start">09/28</h4>
+                </div>
+            </div>
+
+            <div class="card" id="DurationCard">
+                <div class="card-body">
+                    <h6 class="card-subtitle text-muted">Duration</h6>
+                    <h4 class="card-title" id="duration">6 days</h4>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-group" id="FlightDeck">
+            <div class="card" style="max-width:20%">
+                <div class="card-body">
+                    <img class="card-image" src="./images/Flight_Icon.png" height="15%">
+                </div>
+            </div>
+
+
+            <div class="card" id="FlightData">
+                <div class="card-body">
+                    <h4 class="card-title" id="FlightText">Litty Flight Data Text</h4>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <!--This is the Final Submission Group-->
+        <div class="container" id="Final">
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-lg btn-primary" id="Go Back" href="feed.html">Go back</a>
+                </div>
+
+                <div class="col">
+                    <a class="btn btn-lg btn-primary"id="LittyTitty" href="feed.html">Litty Titty</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+
+    trip = sessionStorage.getItem("trip");
+
+    document.getElementById("city").innerHTML = trip.city;
+    document.getElementById("price").innerHTML = trip.price;
+    document.getElementById("image").innerHTML = trip.image;
+
+
+
+</script>
+
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+
+</body>
+
+</html>
