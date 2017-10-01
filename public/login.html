@@ -3,38 +3,47 @@
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
 </head>
 <body>
-<div class = "padded-outer" align = "center">
-    <h1> Login Page </h1>
-    <style type = "text/css">
-        div.padded-outer{
-            padding-top: 0px;
-            padding-right: 100px;
-            padding-bottom: 00px;
-            padding-left: 100px;
-        }
-    </style>
+<div class = "card" align = "center">
+    <div class="card-header"><h1> Welcome to Small World </h1></div>
+    <div class="card-body">
+<br>
     <form id="login-form1" class="list">
         <ion-list id="login-list1">
             <label class="item item-input" id="login-input1">
-                <span class="input-label">Email</span>
-                <input type="email" placeholder="">
-            </label> <br> <br>
+                <div class="input-group">
+                    <span class="input-group-addon">Email: </span>
+                    <input type="email" placeholder="">
+                </div>
+            </label> <br>
             <label class="item item-input" id="login-input2">
-                <span class="input-label">Password</span>
-                <input type="password" placeholder="">
+
+                <div class="input-group">
+                    <span class="input-group-addon">Password: </span>
+                    <input type="password" placeholder="">
+                </div>
+
             </label>
         </ion-list>
         <div class="spacer" style="height: 40px;"></div>
-        <a href="feed.html">Log in</a> <br>
-        <a href="#">Or create an account</a>
+
+
+
     </form>
-    <div style="margin-left: -10px; width: calc(100% + 20px);">
+
+        <a class="btn btn-primary" id="Prev" href="feed.html">Login</a>
+        <button class="btn btn-primary" id="Next" href="#">Or create your own account</button>
+
 
     </div>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 </body>
 </html>
