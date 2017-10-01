@@ -7,32 +7,54 @@
 
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="nav-item nav-link" target = "my_frame" href="feed.html"><img src = "images/logo.png" height = "20px"></a>
+    <a class="navbar-brand" href="#">Small World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+
+            <a class="nav-item nav-link active" target = "my_frame" href="feed.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="preferences.html">Preferences</a>
+            <a class="nav-item nav-link" href="profile.html">Profile</a>
+            <a class="nav-item nav-link" href="profile.html">Dashboard</a>
+            <a class="nav-item nav-link" href="saved.html" >Saved</a>
+            <a class="nav-item nav-link" href="login.html">Logout</a>
+
+        </div>
+    </div>
+</nav>
+
+
 <div class = "card" align = "center">
     <div class="card-header"><h1> Welcome to Small World </h1></div>
     <div class="card-body">
-<br>
-    <form id="login-form1" class="list">
-        <ion-list id="login-list1">
-            <label class="item item-input" id="login-input1">
-                <div class="input-group">
-                    <span class="input-group-addon">Email: </span>
-                    <input type="email" placeholder="">
-                </div>
-            </label> <br>
-            <label class="item item-input" id="login-input2">
+        <br>
+        <form id="login-form1" class="list">
+            <ion-list id="login-list1">
+                <label class="item item-input" id="login-input1">
+                    <div class="input-group">
+                        <span class="input-group-addon">Email: </span>
+                        <input type="email" placeholder="">
+                    </div>
+                </label> <br>
+                <label class="item item-input" id="login-input2">
 
-                <div class="input-group">
-                    <span class="input-group-addon">Password: </span>
-                    <input type="password" placeholder="">
-                </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">Password: </span>
+                        <input type="password" placeholder="">
+                    </div>
 
-            </label>
-        </ion-list>
-        <div class="spacer" style="height: 40px;"></div>
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 40px;"></div>
 
 
 
-    </form>
+        </form>
 
         <a class="btn btn-primary" id="Prev" href="feed.html">Login</a>
         <button class="btn btn-primary" id="Next" href="#">Or create your own account</button>

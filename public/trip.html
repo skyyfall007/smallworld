@@ -16,11 +16,30 @@
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="nav-item nav-link" target = "my_frame" href="feed.html"><img src = "images/logo.png" height = "20px"></a>
+    <a class="navbar-brand" href="#">Small World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+
+            <a class="nav-item nav-link active" target = "my_frame" href="feed.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="preferences.html">Preferences</a>
+            <a class="nav-item nav-link" href="profile.html">Profile</a>
+            <a class="nav-item nav-link" href="profile.html">Dashboard</a>
+            <a class="nav-item nav-link" href="saved.html" >Saved</a>
+            <a class="nav-item nav-link" href="login.html">Logout</a>
+
+        </div>
+    </div>
+</nav>
 
 <div class = "card text-center w-80" id="Main_Card">
     <div class="card-header">
         <div class="card bg-dark text-white crop" id="Picard">
-            <img class="card-img" src="./images/2.jpg" id="image">
+            <img class="card-img" src="./images/2.jpg" id="image" alt="Card image cap">
             <h3 class="card-img-overlay card-title" id="city">Bangin' Bengaluru</h3>
         </div>
     </div>
@@ -103,11 +122,11 @@
 
 <script>
 
-    trip = sessionStorage.getItem("trip");
-
+    var trip = JSON.parse(sessionStorage.getItem('trip'));
+    document.write(trip);
     document.getElementById("city").innerHTML = trip.city;
     document.getElementById("price").innerHTML = trip.price;
-    document.getElementById("image").innerHTML = trip.image;
+    document.getElementById("image").src = trip.image;
 
 
 
