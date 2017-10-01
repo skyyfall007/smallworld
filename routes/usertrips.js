@@ -32,25 +32,37 @@ var handleError = function handleError(res, reason, message, code) {
 @TODO add hotel and daily budget to each trip before sending them out
  */
 router.get('/:budget/:departureDate/:duration/:originCity/:leaveDate', function(req, res, next) {
-    var budget = req.params.budget;
-    var departureDate = req.params.departureDate;
-    var duration = req.params.duration;
-    var originCity = req.params.originCity;
+    var id = req.params.id;
+    var count = 0;
     var tripListJson = null;
-    var leaveDate = req.params.leaveDate;
+    var tripBudget = null;
+    var user = null;
+    var flightBudget = null;
+    var hotelBudget = null;
+    var departureDate = null;
+    var duration = null;
+    var dailyBudget = null;
+    var originCity = null;
+    if (user == null){
+        getUserById(id).then(function(data) {
+            user = data;
+            tripBudget = user.budget;
+            departureDate = user.departureDate;
+            duration = user.numberOfDays;
+            originCity = user.originCity;
 
-    var flightBudget = getFlightBudget(budget);
-    var hotelBudget = getHotelNightBudget(budget);
-    var dailyBudget = getDailyBudget(budget);
+            flightBudget = getFlightBudget(tripBudget);
+            hotelBudget = getHotelNightBudget(tripBudget);
+            dailyBudget = getDailyBudget(tripBudget);
 
+            //tripListJson = flightInspiration(originCity, flightBudget, departureDate, duration);
+            flightInspiration(originCity, flightBudget, departureDate, duration).then(function (data) {
+                tripListJson = data;
+                res.status(200).json(tripListJson);
+            });
 
-    flightInspiration(originCity, flightBudget, departureDate, duration).then(function (data) {
-        var flightList = data.results;
-        var flightList = (jsonChopper(flightList, 27));
-        console.log(flightList);
-        res.status(200).json(flightList);
-
-    });
+        });
+    };
 
 });
 
