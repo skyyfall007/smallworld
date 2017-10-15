@@ -6,16 +6,20 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "arraylist": "^0.1.0",
     "body-parser": "^1.17.2",
+    "bootstrap-horizon": "^1.0.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "^4.15.3",
     "express-generator": "^4.15.5",
     "jade": "~1.11.0",
+    "jsonminify": "^0.4.1",
     "mongodb": "^2.2.30",
     "morgan": "~1.8.1",
     "node-static": "^0.7.10",
     "request": "^2.83.0",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "timer-stopwatch": "^0.2.0"
   }
 }

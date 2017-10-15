@@ -18,7 +18,7 @@ mongodb.MongoClient.connect(mongo_connection_uri, function (err, database) {
 });
 
 
-//var AmadeusSandbox = require("../util/AmadeusSandbox.js");
+//var AmadeusSandbox = require("../util/TripConstructor.js");
 //var budgeter = require("../util/budgeting.js");
 
 // Generic error handler used by all endpoints.
@@ -91,7 +91,7 @@ var getHotelNightBudget = function (totalBudget, numberOfDays) {
     return parseInt(d);
 };
 
-var apiKey = "3tiT2AwHzjXBasqIEoGf7KCJaXMqWEvk";
+var apiKey = "FBIg0ZH9w6GpqX0FIlDzp51H2GffPziy";
 var FLIGHT_INSPIRATION_URL = "http://api.sandbox.amadeus.com/v1.2/flights/inspiration-search";
 var HOTEL_SEARCH_URL = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport";
 var http = require('http');

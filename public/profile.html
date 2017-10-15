@@ -1,0 +1,136 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-horizon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-horizon/dist/bootstrap-horizon.min.css">
+    <title>Small World - your personalized trip feed</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="nav-item nav-link" target = "my_frame" href="feed.html"><img src = "images/logo.png" height = "20px"></a>
+    <a class="navbar-brand" href="#">Small World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+
+            <a class="nav-item nav-link active" target = "my_frame" href="feed.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="preferences.html">Preferences</a>
+            <a class="nav-item nav-link" href="login.html">Logout</a>
+
+        </div>
+    </div>
+</nav>
+
+
+<div class="row row-horizon">
+    <div class="col-xs-6">
+        <p>This content is very, very, very, very, very, very, veryLSKJdfa;sljdhf;jashdf;jksadkfjhskajdhfkasjdhflkasjdhflaksjdhfalskdjfhlskjdfhalskjdfhalskjdfh wide!</p>
+    </div>
+    <div class="col-xs-6">
+        <p>This content is very, very, very, very, very, very, very wide!</p>
+    </div>
+    <div class="col-xs-6">
+        <p>This content is very, very, very, very, very, very, very wide!</p>
+    </div>
+    <div class="col-xs-6">
+        <p>This content is very, very, very, very, very, very, very wide!</p>
+    </div>
+    <div class="col-xs-6">
+        <p>This content is very, very, very, very, very, very, very wide!</p>
+    </div>
+    <div class="col-xs-6">
+        <p>This content is very, very, very, very, very, very, very wide!</p>
+    </div>
+    <div class="col-xs-6">
+        <p>This content is very, very, very, very, very, very, very wide!</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+    txt = "<div class = \'card-header\'> <h2 class=\'card-title\'>Your Personalized Trip Feed</h2> </div> <div class=\'card-body\'>";
+    trips = [{"city" : "Bangalore",
+        "price" : 300,
+        "image" : ".//images//2.jpg"},
+        {"city" : "Switzerland",
+            "price" : 300,
+            "image" : ".//images//4.jpg"},
+        {"city" : "Madrid",
+            "price" : 300,
+            "image" : ".//images//1.jpg"}];
+
+
+
+    var counter = 1;
+
+    if(counter === 1)
+        document.getElementById("Prev").isDisabled = true;
+
+
+
+    var loadPage = function(trips, counter){
+        //var urlx = sessionStorage.getItem("url");
+        var urlx = "/api/usertrips/1000/2017-10-01/10/NYC/2017-10-11/";
+        trips = JSON.parse(jQuery.get(urlx));
+        for (i=0; i < 3; i++){
+            for(j=0;j<3;j++){
+                index = i % 3;
+                y = i+1;
+                x = j+1;
+                id = x + "." + y + ".";
+
+                //document.write(id)
+
+                var r = Math.floor((Math.random() * 11)+1);
+
+                var image = "./images/" + r + ".jpg";
+
+
+                document.getElementById(id + "city").innerHTML = trips[index].destination;
+                document.getElementById(id + "image").src = image;
+                document.getElementById(id + "price").onclick = goToTrip(index);
+                document.getElementById(id + "price").innerHTML = ((trips[index].price)*4).toString();
+
+            }
+        }
+    }
+
+    var goToTrip = function(index){
+        return function () {
+            var price, departuredate, leavedate, city, url;
+
+            price = trips[index].price * 2;
+            departuredate = trips[index].departuredate;
+            leavedate = trips[index].leavedate;
+            city = trips[index].city;
+
+            url = "journey365.herokuapp.com/api/"+price+"/"+departuredate+"/"+leavedate+"/"+city+"/";
+            sessionStorage.setItem("url", url);
+            sessionStorage.setItem("trip", JSON.stringify(trips[index]));
+            //document.write(item);
+            var sendlink = "trip.html";
+            window.location.href = sendlink;
+        }
+    }
+
+    loadPage(trips, 1);
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+</body>
+</html>

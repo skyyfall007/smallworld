@@ -15,6 +15,8 @@ var restaurants = require('./routes/restaurants');
 var trips = require('./routes/trips');
 var usertrips = require("./routes/usertrips");
 var cityhotels = require("./routes/cityhotels")
+//Util
+var TripConstructor = require('./util/TripConstructor')
 //MongoDB requirements
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
@@ -44,21 +46,22 @@ app.use('/api/trips', trips);
 app.use('/api/usertrips', usertrips);
 app.use('/api/cityhotels', cityhotels);
 
+
 // catch 404 and forward to error handler
-/*app.use(function(req, res, next) {
+app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
-});*/
+});
 
-/*app.use(function(req, res, next) {
+app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-});*/
+});
 
 // error handler
-/*
+
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -68,7 +71,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-*/
+
 
 // Connection to MongoDB
 // please add process.env.MONGODD_URI instead of hardcoded uri when deploying

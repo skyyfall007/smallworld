@@ -11,7 +11,6 @@ mongodb.MongoClient.connect(mongo_connection_uri, function (err, database) {
         console.log(err);
         process.exit(1);
     }
-
     // Save database object from the callback for reuse.
     db = database;
     console.log("/users Database connection ready");
@@ -49,6 +48,7 @@ router.get('/', function (req, res, next){
 });
 
 /*POST user */
+
 router.post('/', function(req, res, next){
     var newUser = req.body;
     console.log(req.body);
