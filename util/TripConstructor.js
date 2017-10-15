@@ -1,5 +1,5 @@
-var apiKey = "FBIg0ZH9w6GpqX0FIlDzp51H2GffPziy";
-var googleApiKey = "AIzaSyDOjFExTVI96xAH5TlLZ0_-4eRmjG9Lt-A";
+var apiKey = "";
+var googleApiKey = "";
 var GOOGLE_IMAGE_URL = "https://maps.googleapis.com/maps/api/place/photo?";
 var GOOGLE_RESULT_IMAGE_URL = "https://maps.googleapis.com/maps/api/place/photo?";
 var POINTS_OF_INTEREST_URL = "https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-text";
