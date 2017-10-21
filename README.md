@@ -51,7 +51,9 @@ We built a backend server with node.js (hosted on heroku). Our database is hoste
 ## ACCOMPLISHMENTS?
 
 •Built a fully functional app
+
 •Built a comprehensive Rest API
+
 •Focused on User Experience
 
 
