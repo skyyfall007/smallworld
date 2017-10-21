@@ -54,7 +54,8 @@ We built a backend server with node.js (hosted on heroku). Our database is hoste
 •Built a comprehensive Rest API
 •Focused on User Experience
 
-![Alt Text](https://media.tenor.com/images/c3cdb32a8b73ac587506339e1582c3b5/tenor.gif)
+
+![Alt Text](https://media.giphy.com/media/3o6ZtlGkjeschymLNm/giphy.gif)
 
 ## CREDITS
 
