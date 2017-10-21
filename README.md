@@ -59,6 +59,6 @@ We built a backend server with node.js (hosted on heroku). Our database is hoste
 ## CREDITS
 
 * Adele Francois         [[@skyyfall007]](https://github.com/skyyfall007) 
-* Aditya Sharma    [[@]](https://github.com/)
-* 
-* 
+* Aditya Sharma   
+* Ankith Subramanya
+* Karan Abrol
