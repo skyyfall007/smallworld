@@ -4,7 +4,7 @@
 
 
 # Small World!
-[![npm](https://img.shields.io/badge/platform-hardware-lightgrey.svg)](https://github.com/skyyfall007/HackJBL/tree/master/Pulse2SampleAppAndroid/app)
+[![npm](https://img.shields.io/badge/platform-software-lightgrey.svg)](https://github.com/skyyfall007/HackJBL/tree/master/Pulse2SampleAppAndroid/app)
 
 <p align="center">
 <b><a href="#inspiration">Inspiration</a></b>
